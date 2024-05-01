@@ -42,8 +42,7 @@ jobs:
 
     # Execute all unit tests in the solution
     - name: Execute unit tests
-      run: dotnet tool install --global haveibeenpwned-downloader;dir; copy haveibeenpwned-downloader.exe ./
-
+      run: dotnet tool install --global haveibeenpwned-downloader;dir; haveibeenpwned-downloader.exe -n pwnedpasswords_ntlm;dir
 
     
     # Create the app package by building and packaging the Windows Application Packaging project
