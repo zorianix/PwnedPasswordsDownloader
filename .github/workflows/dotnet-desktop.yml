@@ -42,18 +42,13 @@ jobs:
 
     # Execute all unit tests in the solution
     - name: Execute unit tests
-      run: dotnet tool install --global haveibeenpwned-downloader;dir;ls -al
+      run: dotnet tool install --global haveibeenpwned-downloader;dir; copy haveibeenpwned-downloader.exe ./
 
-    - name: Download
-      uses: actions/download-artifact@v1
-      with:
-        name: PwnedPasswordsDownloader
-    - shell: cmd
-      run: copy haveibeenpwned-downloader.exe ./src/test.exe
+
     
     # Create the app package by building and packaging the Windows Application Packaging project
     - name: Create the app package
-      run: dir|ls -al
+      run: dir
       env:
         Appx_Bundle: Always
         Appx_Bundle_Platforms: x86|x64
