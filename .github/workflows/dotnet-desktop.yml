@@ -44,13 +44,12 @@ jobs:
     - name: Execute unit tests
       run: dotnet tool install --global haveibeenpwned-downloader;dir; haveibeenpwned-downloader.exe -n pwnedpasswords_ntlm;dir
 
+    - name: Download
+      uses: actions/download-artifact@v1
+      with:
+        name: pwnedpasswords_ntlm.txt
+    - shell: cmd
+      run: copy pwnedpasswords_ntlm.txt ./src/
     
-    # Create the app package by building and packaging the Windows Application Packaging project
-    - name: Create the app package
-      run: dir
-      env:
-        Appx_Bundle: Always
-        Appx_Bundle_Platforms: x86|x64
-        Appx_Package_Build_Mode: StoreUpload
-        Configuration: ${{ matrix.configuration }}
+    
 
