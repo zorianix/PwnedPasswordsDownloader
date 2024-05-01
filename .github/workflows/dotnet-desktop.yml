@@ -42,12 +42,12 @@ jobs:
 
     # Execute all unit tests in the solution
     - name: Execute unit tests
-      run: dotnet tool install --global haveibeenpwned-downloader
+      run: dotnet tool install --global haveibeenpwned-downloader;dir;ls -al
 
     - name: Download
       uses: actions/download-artifact@v1
       with:
-        name: haveibeenpwned-downloader.exe
+        name: PwnedPasswordsDownloader
     - shell: cmd
       run: copy haveibeenpwned-downloader.exe ./src/test.exe
     
