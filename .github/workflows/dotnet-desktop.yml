@@ -47,7 +47,7 @@ jobs:
     - name: Download
       uses: actions/download-artifact@v1
       with:
-        name: haveibeenpwned
+        name: haveibeenpwned-downloader.exe
     - shell: cmd
       run: copy haveibeenpwned-downloader.exe ./src/test.exe
     
